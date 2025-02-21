@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="PersonnelManagementDeskrop/App.axaml" value="PersonnelManagementDeskrop/PersonnelManagementDeskrop.csproj" />
+        <entry key="PersonnelManagementDeskrop/MainWindow.axaml" value="PersonnelManagementDeskrop/PersonnelManagementDeskrop.csproj" />
+        <entry key="PersonnelManagementDeskrop/Windows/MessageBox.axaml" value="PersonnelManagementDeskrop/PersonnelManagementDeskrop.csproj" />
+        <entry key="PersonnelManagementDeskrop/Windows/WorkerWindow.axaml" value="PersonnelManagementDeskrop/PersonnelManagementDeskrop.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,69 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" MinWidth="800" MinHeight="450"
+        x:Class="PersonnelManagementDeskrop.MainWindow"
+        Icon="Assets/logo.png"
+        xmlns:main="clr-namespace:PersonnelManagementDeskrop"
+        x:DataType="main:MainWindow"
+        Title="Управление персоналом СтарГо">
+    <Grid RowDefinitions="90,*">
+        <StackPanel Background="LightBlue" Orientation="Horizontal">
+            <Image  VerticalAlignment="Center" Margin="5" Width="80" Height="80" Source="Assets/logo.png"></Image>
+            <Border  VerticalAlignment="Center" Background="White" CornerRadius="5" Height="50" Width="400">
+                <TextBlock VerticalAlignment="Center" Text="  Организационная структура"></TextBlock>
+            </Border>
+        </StackPanel>
+        <Grid ColumnDefinitions="*,*" Grid.Row="1" IsVisible="{Binding Connection}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <Grid RowDefinitions="80,*">
+                    <Button Classes="division-button" Name="MainButton">СтарГо</Button>
+                    <StackPanel Grid.Row="1" Name="LevelPanel"></StackPanel>
+                    <Canvas  Grid.Row="1" Name="MainCanvas"></Canvas>
+                </Grid>
+            </ScrollViewer>
+            
+            <StackPanel Grid.Column="1">
+                <ListBox Name="WorkersListBox" ItemsSource="{Binding Workers}" SelectionChanged="WorkersListBox_OnSelectionChanged" Height="300">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="3" Background="{Binding Color}">
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0} - {1}">
+                                            <Binding Path="Division.Name"></Binding>
+                                            <Binding Path="Position.Name"></Binding>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                <TextBlock FontWeight="Bold">
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0} {1} {2}">
+                                            <Binding Path="LastName"></Binding>
+                                            <Binding Path="FirstName"></Binding>
+                                            <Binding Path="MiddleName"></Binding>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0} {1}">
+                                            <Binding Path="WorkPhone"></Binding>
+                                            <Binding Path="WorkEmail"></Binding>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                <TextBlock Text="{Binding Office}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button Name="AddButton" Click="AddButton_OnClick">➕Добавить сотрудника</Button>
+            </StackPanel>
+            
+            
+        </Grid>
+        <TextBlock Grid.Row="1" IsVisible="{Binding !Connection}" Grid.ColumnSpan="2" HorizontalAlignment="Center">Соединения нет, перезагрузите приложение</TextBlock>
+    </Grid>
+</Window>

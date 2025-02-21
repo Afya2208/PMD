@@ -1,0 +1,15 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="PersonnelManagementDeskrop.App"
+             RequestedThemeVariant="Light">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.Styles>
+        <Style Selector="Button.division-button">
+            <Setter Property="Background" Value="LightBlue"></Setter>
+            <Setter Property="Margin" Value="20"></Setter>
+            <Setter Property="Height" Value="40"></Setter>
+        </Style>
+        <FluentTheme />
+    </Application.Styles>
+</Application>
